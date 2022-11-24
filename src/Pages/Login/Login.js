@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
-    const { register, formState: {errors}, handleSubmit } = useForm();
+    const { register, reset, formState: {errors}, handleSubmit } = useForm();
     const { signIn, googleSignIn, resetPassword} = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
+    const navigate = useNavigate();
 
 
     const handleLogin = data => {
@@ -14,7 +15,9 @@ const Login = () => {
         signIn(data.email, data.password)
         .then(result => {
             const user = result.user;
-            console.log(user);            
+            navigate('/');
+            console.log(user);   
+            reset();         
         })
         .catch(error => {
             console.log(error.message);
@@ -26,7 +29,9 @@ const Login = () => {
         googleSignIn()
         .then(result => {
             const user = result.user;
+            navigate('/');
             console.log(user);
+            reset();   
         })
         .catch(err =>console.error(err));
     }
