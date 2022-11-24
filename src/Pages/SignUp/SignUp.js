@@ -1,66 +1,26 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import useToken from '../../hooks/UseToken';
 
 const SignUp = () => {
-
     const {register, handleSubmit, formState: {errors}} = useForm();
-    const {createUser, updateUser} = useContext(AuthContext);
+    const {createUser} = useContext(AuthContext); 
     const [signUpError, setSignUpError] = useState('');
-    const [createdUserEmail, setCreatedUserEmail] = useState('');
-    const [token] = useToken(createdUserEmail);
 
-
-    const navigate = useNavigate();
-
-    if(token) {
-        navigate('/')
-    }
-
-    const handleSignUp = (data) => {
-        
-        setSignUpError('');
+    const handleSignUp = data => {
         createUser(data.email, data.password)
-        .then(result=> {
+        .then(result => {
             const user = result.user;
             console.log(user);
-            toast('User Created Successfully')
-            const userInfo = {
-                displayName: data.name
-            }
-            updateUser(userInfo)
-            .then(() => {
-                saveUser(data.name, data.email);
-            })
-            .catch(err => console.log(err));
+            toast('New User added successfully');
         })
         .catch(error => {
-            console.log(error)
+            console.log(error);
             setSignUpError(error.message)
         });
     }
-
-    const saveUser = (name, email) =>{
-        const user = {name, email};
-        fetch('/users', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body:JSON.stringify(user)
-        })
-        .then(res => res.json())
-        .then(data => {
-            setCreatedUserEmail(email);
-           
-        }) 
-    }
-
-   
-
 
     return (
         <div className='h-[800px] flex justify-center items-center'>
@@ -99,10 +59,7 @@ const SignUp = () => {
                     <input type='password'                
                         {...register("password",{
                             required: "Password is required",
-                            minLength: {value: 6, message: "Password munst be 6 character logn"},
-                            pattern: {value:/(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                                       message: 'Password must be have uppercase  number and special characters' 
-                                    }
+                            minLength: {value: 6, message: "Password munst be 6 character logn"}                           
                         })}
                       className="input input-bordered w-full max-w-xs" />
                       {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
