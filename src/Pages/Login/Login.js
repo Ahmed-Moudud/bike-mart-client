@@ -95,7 +95,7 @@ const Login = () => {
                     }
                 </div>
             </form>
-            <p>New to Doctors Portal <Link className='text-secondary' to="/signup">Create an Account</Link></p>
+            <p>New to BikeMart <Link className='text-secondary' to="/signup">Create an Account</Link></p>
             <div className="divider">OR</div>
             <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
         </div>

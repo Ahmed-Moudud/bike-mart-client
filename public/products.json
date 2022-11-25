@@ -1,0 +1,48 @@
+[
+    {
+        "productName": "Bajaj 150cc",
+        "buyingPrice": "150000",
+        "sellingPrice": "70000",
+        "condition": "Good",
+        "mobileNumber": "012454",        
+        "location": "Dhaka",
+        "category": "scooter",       
+        "description": "Bajaj 150 is a nice looking scooter. You will have a great milage riding with this.",
+        "yearOfPurchase": "2010",
+        "sellerName": "Rayhan",
+        "postedTime": "",
+        "image": "",
+        "email": ""
+        
+    },
+    {
+        "productName": "Yamaha R15",
+        "buyingPrice": "450000",
+        "sellingPrice": "200000",
+        "condition": "Fair",
+        "mobileNumber": "15464",        
+        "location": "Chittagong",
+        "category": "Sports Bike",       
+        "description": "Yamaha R15 is one of the finest and fastest bike in the world. You will have a great speed riding this this bike.",
+        "yearOfPurchase": "2015",
+        "sellerName": "Rafi",
+        "postedTime": "",
+        "image": "",
+        "email": ""
+    },
+    {
+        "productName": "Honda Dream Neo",
+        "buyingPrice": "110000",
+        "sellingPrice": "60000",
+        "condition": "excellent",
+        "mobileNumber": "45464",        
+        "location": "Faridpur",
+        "category": "Commuter Bike",       
+        "description": "Honada Dream Neo is a widely used bike in our country. My bike will give you a better experience in city riding.",
+        "yearOfPurchase": "2018",
+        "sellerName": "Tomal",
+        "postedTime": "",
+        "image": "",
+        "email": ""
+    }
+]
