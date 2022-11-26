@@ -44,5 +44,20 @@
         "postedTime": "",
         "image": "",
         "email": ""
+    },
+    {
+        "productName": "Bajaj Platina",
+        "buyingPrice": "110000",
+        "sellingPrice": "60000",
+        "condition": "good",
+        "mobileNumber": "45464",        
+        "location": "Faridpur",
+        "category": "Commuter Bike",       
+        "description": "Bajaj Platina is a widely used bike in our country. My bike will give you a better experience in city riding.",
+        "yearOfPurchase": "2018",
+        "sellerName": "Kamal",
+        "postedTime": "",
+        "image": "",
+        "email": ""
     }
 ]
