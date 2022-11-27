@@ -65,23 +65,23 @@ const Blog = () => {
 
                                 <tr>
                                     <th>1</th>
-                                    <td>Cy Ganderton</td>
-                                    <td>Quality Control Specialist</td>
-                                    <td>Blue</td>
+                                    <td>React, interestingly, combines the UI and behavior of components.</td>
+                                    <td>In Angular, components are referred to as directives.</td>
+                                    <td>In Vue, UI and behavior are also a part of components.</td>
                                 </tr>
 
                                 <tr>
                                     <th>2</th>
-                                    <td>Hart Hagerty</td>
-                                    <td>Desktop Support Technician</td>
-                                    <td>Purple</td>
+                                    <td>React is just old enough to be mature and has a huge number of contributions from the community. It has gained widespread acceptance. </td>
+                                    <td>Angular is the most mature of the frameworks, has good backing in terms of contributors and is a complete package.</td>
+                                    <td>Vue is newest to the arena, without the backing of a major company.</td>
                                 </tr>
 
                                 <tr>
                                     <th>3</th>
-                                    <td>Brice Swyre</td>
-                                    <td>Tax Accountant</td>
-                                    <td>Red</td>
+                                    <td>React developed by Facebook, was initially released in 2013. Facebook uses React extensively in their products</td>
+                                    <td>Angular, developed by Google, was first released in 2010, making it the oldest of the lot. It is a TypeScript-based JavaScript framework.</td>
+                                    <td>Vue also known as Vue.js, is the youngest member of the group. It was developed by ex-Google employee Evan You in 2014.</td>
                                 </tr>
                             </tbody>
                         </table>

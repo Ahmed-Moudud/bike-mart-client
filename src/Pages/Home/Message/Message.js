@@ -4,7 +4,7 @@ import slide1 from '../../../assets/images/slide1.png';
 
 const Message = () => {
     return (
-        <div className="hero my-5 bg-base-200">
+        <div className="hero my-5 bg-base-200 w-5/6 mx-auto">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img src={slide1} alt='' />
           <div>

@@ -88,7 +88,7 @@ const AddProduct = () => {
 
             <div className="form-control w-full max-w-xs">
                 <label className="label">
-                    <span className="label-text">Slling Price</span>
+                    <span className="label-text">Selling Price</span>
                 </label>
                 <input type='number'
                     {...register("sellingPrice", {
