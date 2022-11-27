@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import BookingModal from '../BookingModal/BookingModal';
 import ProductCard from '../ProductCard/ProductCard';
 import Loading from '../Shared/Loading/Loading';
 
 const AllProducts = () => {
+    const [selectedProduct, setSelectedProduct] = useState(null);
     const {data: allProducts = [], refetch, isLoading} = useQuery({
         queryKey: ['allProducts'],
         queryFn: async() => {
@@ -22,8 +24,19 @@ const AllProducts = () => {
                 allProducts.map(product => <ProductCard
                 key={product._id}
                 product={product}
+                selectedProduct={selectedProduct}
+                setSelectedProduct={setSelectedProduct}
                 ></ProductCard>)
             }
+
+{ selectedProduct &&
+            <BookingModal
+            selectedProduct= {selectedProduct}
+            setSelectedProduct={setSelectedProduct}
+            refetch={refetch}
+            ></BookingModal>
+        }
+
         </div>
     );
 };

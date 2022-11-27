@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import BookingModal from '../../BookingModal/BookingModal';
 import ProductCard from '../../ProductCard/ProductCard';
 import Loading from '../../Shared/Loading/Loading';
 
 const Advertisement = () => {   
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const {user} = useContext(AuthContext);
 
     const {data: products = [], refetch, isLoadign} = useQuery({
         queryKey: ['products'],
@@ -32,7 +34,7 @@ const Advertisement = () => {
             ></ProductCard>)
            }
         </div>
-        { selectedProduct && 
+        { (selectedProduct) &&
             <BookingModal
             selectedProduct= {selectedProduct}
             setSelectedProduct={setSelectedProduct}

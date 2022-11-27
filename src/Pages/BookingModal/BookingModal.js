@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 
@@ -16,15 +17,39 @@ const BookingModal = ({selectedProduct, setSelectedProduct, refetch}) => {
         const email =form.email.value;
         const phone= form.phone.value;
         const name = form.name.value;
+        const sellingPrice = form.sellingPrice.value;
+        const meetingPlace = form.meetingPlace.value;
 
         const booking = {
             productName,
             email,
             phone,
-            name
+            name,
+            sellingPrice,
+            meetingPlace
         }
 
-      
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.acknowledged){
+                setSelectedProduct(null)
+                toast.success('Booking successful')
+                refetch();
+            }
+            else{
+                toast.error(data.message);
+            }
+        })
+
+            setSelectedProduct(null)
         
     }
 
@@ -36,9 +61,11 @@ const BookingModal = ({selectedProduct, setSelectedProduct, refetch}) => {
             <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                 <h3 className="font-bold text-lg">{selectedProduct.productName}</h3>
                 <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-                    <input type="text" name='productName' defaultValue={selectedProduct.productName} className="input w-full input-bordered" />
+                    <input type="text" name='productName' defaultValue={selectedProduct.productName} disabled className="input w-full input-bordered" />
+                    <input type="text" name='sellingPrice' defaultValue={selectedProduct.sellingPrice} disabled className="input w-full input-bordered" />
                 
-                    <input name='name' type="text" defaultValue={user.displayName} disabled placeholder="" className="input w-full input-bordered" />
+                    <input name='name' type="text" placeholder="Your Name" className="input w-full input-bordered" />
+                    <input name='meetingPlace' type="text" placeholder="Meeting Place" className="input w-full input-bordered" />
                     <input name='email' type="email" defaultValue={user?.email} disabled placeholder="" className="input w-full input-bordered" />
                     <input name='phone' type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                     <br />
