@@ -6,7 +6,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 const CategoryCard = ({product}) => {
     
     const {category, category_id, image} = product;
-    console.log(category, category_id);
+    // console.log(category, category_id);
  
    
     return (

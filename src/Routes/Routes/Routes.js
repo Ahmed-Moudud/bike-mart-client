@@ -1,12 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
-import AddProduct from "../../Pages/AddProduct/AddProduct";
+
 import AllProducts from "../../Pages/AllProducts/AllProducts";
 import Blog from "../../Pages/Blog/Blog";
+import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminRoute from "./AdminRoute/AdminRoute";
 
 
 export const router = createBrowserRouter([
@@ -30,15 +36,34 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
-            },
-            {
-                path: '/addproduct',
-                element: <AddProduct></AddProduct>
-            },
+            },          
             {
                 path: '/allproducts',
                 element: <AllProducts></AllProducts>
             }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyOrders></MyOrders>
+            },
+             {
+                path: '/dashboard',
+                element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <AdminRoute><AddProduct></AddProduct></AdminRoute>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            }         
         ]
     }
 ])
