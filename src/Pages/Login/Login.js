@@ -30,7 +30,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             navigate('/');
-            console.log(user);
+          
             reset();   
         })
         .catch(err =>console.error(err));
@@ -41,7 +41,7 @@ const Login = () => {
         resetPassword()
         .then(result => {
             const user = result.user;
-            console.log(user);
+            
         })
         .catch(err => console.error(err))
     }

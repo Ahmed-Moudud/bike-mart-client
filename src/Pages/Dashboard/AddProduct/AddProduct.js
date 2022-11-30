@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
-    const imageHostKey = process.env.REACT_APP_imgbb_key
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
+    const navigate = useNavigate();
     console.log(user);
 
     const defaultValues = {
@@ -44,7 +46,7 @@ const AddProduct = () => {
                         category_id: data.category_id
                     }
 
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://bike-mart-server.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -54,6 +56,7 @@ const AddProduct = () => {
                         .then(res => res.json())
                         .then(result => {
                             toast.success(`${data.productName} is added successfully`)
+                            navigate('/dashboard/myproducts');
                         })
                 }
             })

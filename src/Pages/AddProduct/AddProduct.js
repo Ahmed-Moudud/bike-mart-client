@@ -43,7 +43,7 @@
 //                     category_id: data.category_id
 //                 }
 
-//                 fetch('http://localhost:5000/products', {
+//                 fetch('https://bike-mart-server.vercel.app/products', {
 //                     method: 'POST',
 //                     headers: {
 //                         'content-type': 'application/json',

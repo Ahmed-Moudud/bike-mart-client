@@ -8,7 +8,7 @@ const MyProducts = () => {
     const { data: sellerproducts = [] } = useQuery({
         queryKey: ['sellerproducts'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allproducts/${email}`);
+            const res = await fetch(`https://bike-mart-server.vercel.app/allproducts/${email}`);
             const data = await res.json();
             console.log(sellerproducts);
             return data;

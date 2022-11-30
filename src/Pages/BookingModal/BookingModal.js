@@ -30,7 +30,7 @@ const BookingModal = ({ selectedProduct, setSelectedProduct, refetch }) => {
             meetingPlace
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://bike-mart-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

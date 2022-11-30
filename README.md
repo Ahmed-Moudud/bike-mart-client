@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### adminEmail: <jef@bez.com>
+### adminPassword: <123456>
+
+### live site link: https://bike-mart-38465.web.app/
+
+### About Projects
+1. It is a react based website.
+2. React router dom is used in this projects.
+3. It's authentication system is connected to firebase.
+4. Tanstack query is used here to fetch data.
+5. React Hot toast is used to show notification.
+6. Private route as well as route only for admin is applied here.
+7. React hook form is used in this project.
