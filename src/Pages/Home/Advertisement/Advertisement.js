@@ -8,6 +8,7 @@ import Loading from '../../Shared/Loading/Loading';
 const Advertisement = () => {   
     const [selectedProduct, setSelectedProduct] = useState(null);
     const {user} = useContext(AuthContext);
+    const isValidUser = user && selectedProduct;
 
     const {data: products = [], refetch, isLoadign} = useQuery({
         queryKey: ['products'],
@@ -34,13 +35,14 @@ const Advertisement = () => {
             ></ProductCard>)
            }
         </div>
-        { (selectedProduct) &&
+        { (isValidUser) &&
             <BookingModal
             selectedProduct= {selectedProduct}
             setSelectedProduct={setSelectedProduct}
             refetch={refetch}
             ></BookingModal>
         }
+     
 
      </div>
     );

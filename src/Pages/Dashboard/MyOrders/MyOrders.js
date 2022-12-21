@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const url = `https://bike-mart-server.vercel.app/bookings?email=${user?.email}`;
 
@@ -14,7 +14,7 @@ const MyOrders = () => {
         queryFn: async () => {
             const res = await fetch(url);
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             return data;
         }
     })

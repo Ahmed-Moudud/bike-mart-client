@@ -1,7 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const ProductCard = ({ product, setSelectedProduct }) => {
     const {productName, description, image} = product;
+    const {user} = useContext(AuthContext);
     
 
     return (
@@ -13,7 +16,7 @@ const ProductCard = ({ product, setSelectedProduct }) => {
                 <div className="card-actions justify-end">
                     <label
                     htmlFor="booking-modal"
-                    onClick={()=> setSelectedProduct(product)} className="btn btn-primary text-white">Book Now</label>
+                    onClick={()=> user? setSelectedProduct(product): alert('Please Login')} className="btn btn-primary text-white">Book Now</label>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ const AllBuyer = () => {
         queryFn: async() =>{
             const res = await fetch('https://bike-mart-server.vercel.app/users/buyers');
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             return data;
         }
     })

@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
+// import { AuthContext } from '../../contexts/AuthProvider';
 
 
 
 const BookingModal = ({ selectedProduct, setSelectedProduct, refetch }) => {
-    const { user } = useContext(AuthContext);
+   const {user} = useContext(AuthContext)
 
-    console.log(selectedProduct, user);
+    // console.log(user);
 
 
     const handleBooking = event => {
@@ -19,7 +21,7 @@ const BookingModal = ({ selectedProduct, setSelectedProduct, refetch }) => {
         const name = form.name.value;
         const sellingPrice = form.sellingPrice.value;
         const meetingPlace = form.meetingPlace.value;
-        console.log(user);
+        // console.log(user);
 
         const booking = {
             productName,
